@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\tests\Draw;
+namespace Modules\Draw\tests;
 
 require_once __DIR__ . '/../Autoloader.php';
 
