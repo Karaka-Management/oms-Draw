@@ -92,6 +92,7 @@ final class BackendController extends Controller
     {
         $view = new View($this->app->l11nManager, $request, $response);
 
+        /** @var \Modules\Draw\Models\DrawImage $draw */
         $draw      = DrawImageMapper::get((int) ($request->getData('id')));
         $accountId = $request->getHeader()->getAccount();
 
@@ -122,6 +123,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
 
+        /** @var \Modules\Draw\Models\DrawImage[] $images */
         $images = DrawImageMapper::getNewest(25);
         $view->addData('images', $images);
 
