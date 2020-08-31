@@ -8,12 +8,12 @@ use phpOMS\Router\RouteVerb;
 return [
     '^.*/draw.*$' => [
         [
-            'dest' => '\Modules\Draw\Controller\ApiController:apiDrawCreate',
-            'verb' => RouteVerb::SET,
+            'dest'       => '\Modules\Draw\Controller\ApiController:apiDrawCreate',
+            'verb'       => RouteVerb::SET,
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
-                'type'  => PermissionType::CREATE,
-                'state' => PermissionState::DRAW,
+                'type'   => PermissionType::CREATE,
+                'state'  => PermissionState::DRAW,
             ],
         ],
     ],

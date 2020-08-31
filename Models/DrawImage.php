@@ -87,7 +87,7 @@ class DrawImage implements \JsonSerializable, ArrayableInterface
     public function toArray() : array
     {
         return [
-            'id' => $this->id,
+            'id'    => $this->id,
             'media' => \is_scalar($this->media) ? $this->media : $this->media->toArray(),
         ];
     }
