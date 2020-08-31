@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Modules\Draw\Controller;
 
 use Modules\Draw\Models\DrawImageMapper;
-
 use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
