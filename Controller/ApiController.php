@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Orange Management
  *
@@ -10,6 +11,7 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
+
 declare(strict_types=1);
 
 namespace Modules\Draw\Controller;
@@ -18,6 +20,7 @@ use Modules\Draw\Models\DrawImage;
 use Modules\Draw\Models\DrawImageMapper;
 use Modules\Media\Controller\ApiController as MediaController;
 use Modules\Media\Models\UploadStatus;
+use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
@@ -44,7 +47,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    private function validateDrawCreate(RequestAbstract $request) : array
+    private function validateDrawCreate(RequestAbstract $request): array
     {
         $val = [];
         if (($val['title'] = empty($request->getData('title')))
@@ -69,10 +72,11 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function apiDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null): void
     {
         if (!empty($val = $this->validateDrawCreate($request))) {
             $response->set('draw_create', new FormValidation($val));
+            $response->getHeader()->setStatusCode(RequestStatusCode::R_400);
 
             return;
         }
@@ -128,7 +132,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    private function createLocalFile(string $outputPath, string $raw) : bool
+    private function createLocalFile(string $outputPath, string $raw): bool
     {
         $imageData = ImageUtils::decodeBase64Image($raw);
         File::put($outputPath, $imageData);
