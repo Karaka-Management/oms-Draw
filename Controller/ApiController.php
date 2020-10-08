@@ -94,7 +94,7 @@ final class ApiController extends Controller
             $rnd = \mt_rand();
 
             ++$i;
-        } while (\file_exists($path . '/' . $filename) && $i < 10000);
+        } while (\is_file($path . '/' . $filename) && $i < 10000);
 
         // protection against infinite loop
         if ($i >= 10000) {
