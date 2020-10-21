@@ -47,7 +47,7 @@ final class DrawImageMapper extends DataMapperAbstract
     protected static array $ownsOne = [
         'media' => [
             'mapper' => MediaMapper::class,
-            'self'   => 'draw_image_media',
+            'external'   => 'draw_image_media',
         ],
     ];
 
