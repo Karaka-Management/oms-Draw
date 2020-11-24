@@ -87,13 +87,13 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
         $response = new HttpResponse();
         $request  = new HttpRequest(new HttpUri(''));
 
-        $request->getHeader()->setAccount(1);
+        $request->header->account = 1;
         $request->setData('title', 'Draw Title');
         $request->setData('image', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABIkAAACbCAYAAADm48vbAAAgAElEQVR4nOyddbiU5faGbzCwwD6KAbZii9hiYItYmNiBinpQsbDj2InFURGVUlEMEAvFbo6CGFigKGJggYXJ749n5rdnb2b2nvhy5rmva1/Kjpl3Zr7vjWet9SwwxiSdlsAbQK+4B2KMMcYYY4wxxhhj4qELMANoH/dAjDHGGGOMMcYYY0w8XA2MiHsQxhhjjDHGGGOMMSYeXF5mjDHGGGOMMcYYU+O4vMwYY4wxxhhjjDGmxnF5mTHGGGOMMcYYY0wN0wqXlxljjDHGGGOMMcbUNLsC03F5mTHGGGOMMcYYY0zNcg0wPO5BGGOMMcYYY4wxxph4aAW8CZwU90CMMcYYY4wxxhhjTDxky8vWi3sgxhhjjDHGGGOMMSYeXF5mjDHGGGOMMcYYU8O4vMwYY4wxxhhjjDGmxnF5mTHGGGOMMcYYY0yNcy0uLzPGGGOMMcYYY4ypWRYExgInxj0QY4wxxhhjjDHGGBMPuwE/AuvGPRBjjDHGGGOMMcYYEw/XAg/FPQhjjDHGGGOMMcYYEw8uLzPGGGOMMcYYY4ypcVxeZowxxhhjjDHGGFPjuLzMGGOMMcYYY4wxpoZphcvLjDHGGGOMMcYYUySt4x6ACYXOwDO4vMwYY4wxxhhjjDFFsgEwNO5BmEC5FBgZ9yCMMcYYY4wxxhiTPvYB/gH2insgpmJeAHrHPQhjjDHGGGOMMcakl2bAfTirKK1sDszK/NcYY4wxxhhjjDGmYrJZRbvEPRBTNL1RBpExxhhjjDHGGGNMoDQDrsNZRWlgJPIgMsYYY4wxxhhjjAkNexUll7WA6aiLmTHGGGOMMcYYY0zo2KsoefQAxgOt4h6IMcYYY4wxxhhjag9nFSWDIUDfuAdhjDHGGGMSx/LA+jlfK8Y7HGOMMdWOs4riow3wGdAt7oEYY4wxxphEsQHanz8M/C/n6wVg4xjHZYwxpk');
 
         $this->module->apiDrawCreate($request, $response);
 
-        self::assertEquals('Draw Title', $response->get('')['response']->getMedia()->getName());
+        self::assertEquals('Draw Title', $response->get('')['response']->getMedia()->name);
         self::assertGreaterThan(0, $response->get('')['response']->getId());
     }
 }

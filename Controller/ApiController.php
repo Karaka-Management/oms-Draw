@@ -76,7 +76,7 @@ final class ApiController extends Controller
     {
         if (!empty($val = $this->validateDrawCreate($request))) {
             $response->set('draw_create', new FormValidation($val));
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_400);
+            $response->header->status = RequestStatusCode::R_400;
 
             return;
         }
@@ -115,10 +115,10 @@ final class ApiController extends Controller
             'status'    => UploadStatus::OK,
         ];
 
-        $media = MediaController::createDbEntry($status, $request->getHeader()->getAccount());
+        $media = MediaController::createDbEntry($status, $request->header->account);
         $draw  = $media !== null ? DrawImage::fromMedia($media) : null;
 
-        $this->createModel($request->getHeader()->getAccount(), $draw, DrawImageMapper::class, 'draw', $request->getOrigin());
+        $this->createModel($request->header->account, $draw, DrawImageMapper::class, 'draw', $request->getOrigin());
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Draw', 'Draw successfully created.', $draw);
     }
 

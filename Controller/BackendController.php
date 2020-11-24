@@ -92,7 +92,7 @@ final class BackendController extends Controller
 
         /** @var \Modules\Draw\Models\DrawImage $draw */
         $draw      = DrawImageMapper::get((int) ($request->getData('id')));
-        $accountId = $request->getHeader()->getAccount();
+        $accountId = $request->header->account;
 
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-single');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
