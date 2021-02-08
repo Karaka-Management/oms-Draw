@@ -12,13 +12,13 @@
 declare(strict_types=1);
 
 return ['Draw' => [
-    'Created' => 'Created',
-    'Creator' => 'Creator',
-    'Draw' => 'Draw',
-    'GroupUser' => 'Group/User',
-    'Images' => 'Images',
-    'Layout' => 'Layout',
-    'Name' => 'Name',
+    'Created'    => 'Created',
+    'Creator'    => 'Creator',
+    'Draw'       => 'Draw',
+    'GroupUser'  => 'Group/User',
+    'Images'     => 'Images',
+    'Layout'     => 'Layout',
+    'Name'       => 'Name',
     'Permission' => 'Permission',
-    'Start' => 'Start',
+    'Start'      => 'Start',
 ]];
