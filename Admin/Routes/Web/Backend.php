@@ -23,7 +23,7 @@ return [
             'dest'       => '\Modules\Draw\Controller\BackendController:setUpDrawEditor',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'   => PermissionType::CREATE,
                 'state'  => PermissionState::DRAW,
             ],
@@ -32,7 +32,7 @@ return [
             'dest'       => '\Modules\Draw\Controller\BackendController:viewDrawCreate',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'   => PermissionType::CREATE,
                 'state'  => PermissionState::DRAW,
             ],
@@ -43,7 +43,7 @@ return [
             'dest'       => '\Modules\Draw\Controller\BackendController:viewDrawList',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::DRAW,
             ],
@@ -54,7 +54,7 @@ return [
             'dest'       => '\Modules\Draw\Controller\BackendController:setUpDrawEditor',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::DRAW,
             ],
@@ -63,7 +63,7 @@ return [
             'dest'       => '\Modules\Draw\Controller\BackendController:viewDrawSingle',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::DRAW,
             ],

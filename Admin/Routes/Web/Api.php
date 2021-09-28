@@ -23,7 +23,7 @@ return [
             'dest'       => '\Modules\Draw\Controller\ApiController:apiDrawCreate',
             'verb'       => RouteVerb::SET,
             'permission' => [
-                'module' => ApiController::MODULE_NAME,
+                'module' => ApiController::NAME,
                 'type'   => PermissionType::CREATE,
                 'state'  => PermissionState::DRAW,
             ],
