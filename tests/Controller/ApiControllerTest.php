@@ -12,31 +12,45 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Draw\tests;
+namespace Modules\Draw\tests\Controller;
 
 use Model\CoreSettings;
 use Modules\Admin\Models\AccountPermission;
+use phpOMS\DataStorage\Session\HttpSession;
 use phpOMS\Account\Account;
 use phpOMS\Account\AccountManager;
 use phpOMS\Account\PermissionType;
 use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Dispatcher\Dispatcher;
 use phpOMS\Event\EventManager;
-use phpOMS\Message\Http\HttpRequest;
-use phpOMS\Message\Http\HttpResponse;
+use phpOMS\Module\ModuleAbstract;
 use phpOMS\Module\ModuleManager;
 use phpOMS\Router\WebRouter;
-use phpOMS\Uri\HttpUri;
 use phpOMS\Utils\TestUtils;
+use phpOMS\Localization\ISO639x1Enum;
+use Modules\Media\Models\MediaMapper;
+use Modules\Media\Models\PathSettings;
+use Modules\Media\Models\UploadStatus;
+use phpOMS\Message\Http\HttpRequest;
+use phpOMS\Message\Http\HttpResponse;
+use phpOMS\Message\Http\RequestStatusCode;
+use phpOMS\System\File\Local\Directory;
+use phpOMS\Uri\HttpUri;
+use phpOMS\DataStorage\Database\DatabaseType;
 
 /**
+ * @testdox Modules\Draw\tests\Controller\ApiControllerTest: Draw api controller
+ *
  * @internal
  */
-final class ControllerTest extends \PHPUnit\Framework\TestCase
+final class ApiControllerTest extends \PHPUnit\Framework\TestCase
 {
-    protected $app    = null;
+    protected ApplicationAbstract $app;
 
-    protected $module = null;
+    /**
+     * @var \Modules\Draw\Controller\ApiController
+     */
+    protected ModuleAbstract $module;
 
     /**
      * {@inheritdoc}
@@ -52,10 +66,11 @@ final class ControllerTest extends \PHPUnit\Framework\TestCase
         $this->app->orgId          = 1;
         $this->app->accountManager = new AccountManager($GLOBALS['session']);
         $this->app->appSettings    = new CoreSettings();
-        $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../../Modules/');
+        $this->app->moduleManager  = new ModuleManager($this->app, __DIR__ . '/../../../../Modules/');
         $this->app->dispatcher     = new Dispatcher($this->app);
         $this->app->eventManager   = new EventManager($this->app->dispatcher);
-        $this->app->eventManager->importFromFile(__DIR__ . '/../../../Web/Api/Hooks.php');
+        $this->app->eventManager->importFromFile(__DIR__ . '/../../../../Web/Api/Hooks.php');
+        $this->app->sessionManager = new HttpSession(36000);
 
         $account = new Account();
         TestUtils::setMember($account, 'id', 1);
@@ -96,7 +111,23 @@ final class ControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiDrawCreate($request, $response);
 
-        self::assertEquals('Draw Title', $response->get('')['response']->getMedia()->name);
+        self::assertEquals('Draw Title', $response->get('')['response']->media->name);
         self::assertGreaterThan(0, $response->get('')['response']->getId());
+    }
+
+    /**
+     * @covers Modules\Draw\Controller\ApiController
+     * @group module
+     */
+    public function testApiDrawCreateInvalidData() : void
+    {
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new HttpUri(''));
+
+        $request->header->account = 1;
+        $request->setData('invalid', '1');
+
+        $this->module->apiDrawCreate($request, $response);
+        self::assertEquals(RequestStatusCode::R_400, $response->header->status);
     }
 }

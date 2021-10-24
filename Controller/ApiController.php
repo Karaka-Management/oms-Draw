@@ -98,8 +98,10 @@ final class ApiController extends Controller
 
         // protection against infinite loop
         if ($i >= 10000) {
+            // @codeCoverageIgnoreStart
             $this->fillJsonResponse($request, $response, NotificationLevel::ERROR, 'Draw', 'Draw failed.', null);
             return;
+            // @codeCoverageIgnoreEnd
         }
 
         $fullPath = __DIR__ . '/../../../' . $path . '/' . $filename;
