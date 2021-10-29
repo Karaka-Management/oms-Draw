@@ -85,7 +85,7 @@ class DrawImage implements \JsonSerializable, ArrayableInterface
      */
     public static function fromMedia(Media $media) : self
     {
-        $image = new self();
+        $image        = new self();
         $image->media = $media;
 
         return $image;

@@ -24,7 +24,7 @@ namespace Modules\Draw\Models;
  */
 final class NullDrawImage extends DrawImage
 {
-	/**
+    /**
      * Constructor
      *
      * @param int $id Model id
