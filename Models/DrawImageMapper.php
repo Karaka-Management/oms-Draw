@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Modules\Draw\Models;
 
 use Modules\Media\Models\MediaMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
  * Mapper class.
@@ -25,7 +25,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class DrawImageMapper extends DataMapperAbstract
+final class DrawImageMapper extends DataMapperFactory
 {
     /**
      * Columns.
@@ -33,7 +33,7 @@ final class DrawImageMapper extends DataMapperAbstract
      * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, writeonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
-    protected static array $columns = [
+    public const COLUMNS = [
         'draw_image_id'    => ['name' => 'draw_image_id',    'type' => 'int', 'internal' => 'id'],
         'draw_image_media' => ['name' => 'draw_image_media', 'type' => 'int', 'internal' => 'media'],
     ];
@@ -44,7 +44,7 @@ final class DrawImageMapper extends DataMapperAbstract
      * @var array<string, array{mapper:string, external:string, by?:string, column?:string, conditional?:bool}>
      * @since 1.0.0
      */
-    protected static array $ownsOne = [
+    public const OWNS_ONE = [
         'media' => [
             'mapper'     => MediaMapper::class,
             'external'   => 'draw_image_media',
@@ -57,7 +57,7 @@ final class DrawImageMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $table = 'draw_image';
+    public const TABLE = 'draw_image';
 
     /**
      * Primary field name.
@@ -65,5 +65,5 @@ final class DrawImageMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $primaryField = 'draw_image_id';
+    public const PRIMARYFIELD ='draw_image_id';
 }

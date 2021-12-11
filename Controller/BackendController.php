@@ -17,6 +17,7 @@ namespace Modules\Draw\Controller;
 use Modules\Draw\Models\DrawImageMapper;
 use phpOMS\Asset\AssetType;
 use phpOMS\Contract\RenderableInterface;
+use phpOMS\DataStorage\Database\Query\OrderType;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Views\View;
@@ -92,7 +93,7 @@ final class BackendController extends Controller
         $view = new View($this->app->l11nManager, $request, $response);
 
         /** @var \Modules\Draw\Models\DrawImage $draw */
-        $draw      = DrawImageMapper::get((int) ($request->getData('id')));
+        $draw      = DrawImageMapper::get()->where('id', (int) ($request->getData('id')))->execute();
         $accountId = $request->header->account;
 
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-single');
@@ -123,7 +124,7 @@ final class BackendController extends Controller
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
 
         /** @var \Modules\Draw\Models\DrawImage[] $images */
-        $images = DrawImageMapper::getNewest(25);
+        $images = DrawImageMapper::getAll()->sort('id', OrderType::DESC)->limit(25);
         $view->addData('images', $images);
 
         return $view;
