@@ -46,8 +46,8 @@ final class DrawImageMapper extends DataMapperFactory
      */
     public const OWNS_ONE = [
         'media' => [
-            'mapper'     => MediaMapper::class,
-            'external'   => 'draw_image_media',
+            'mapper'   => MediaMapper::class,
+            'external' => 'draw_image_media',
         ],
     ];
 
