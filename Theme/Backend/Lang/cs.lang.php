@@ -13,12 +13,12 @@
 declare(strict_types=1);
 
 return ['Draw' => [
-    'Created'    => 'Vytvořeno',
+    'Created'    => 'Vytvořený',
     'Creator'    => 'Tvůrce',
     'Draw'       => 'Kreslit',
-    'GroupUser'  => 'Group / User',
+    'GroupUser'  => 'Skupina / User.',
     'Images'     => 'snímky',
-    'Layout'     => 'dispozice',
+    'Layout'     => 'Rozložení',
     'Name'       => 'název',
     'Permission' => 'Povolení',
     'Start'      => 'Start',

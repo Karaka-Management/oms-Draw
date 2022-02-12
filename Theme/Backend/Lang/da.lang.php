@@ -13,10 +13,10 @@
 declare(strict_types=1);
 
 return ['Draw' => [
-    'Created'    => 'lavet',
-    'Creator'    => 'Skaberen',
+    'Created'    => 'Oprettet',
+    'Creator'    => 'Skaber.',
     'Draw'       => 'Tegne',
-    'GroupUser'  => 'Gruppe / Bruger',
+    'GroupUser'  => 'Gruppe / User.',
     'Images'     => 'Billeder',
     'Layout'     => 'Layout',
     'Name'       => 'Navn',

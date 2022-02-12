@@ -13,11 +13,11 @@
 declare(strict_types=1);
 
 return ['Draw' => [
-    'Created'    => 'Alkotó',
+    'Created'    => 'Létrehozott',
     'Creator'    => 'Teremtő',
     'Draw'       => 'Húz',
-    'GroupUser'  => 'Csoport / Felhasználó',
-    'Images'     => 'képek',
+    'GroupUser'  => 'Csoport / felhasználó',
+    'Images'     => 'Kép',
     'Layout'     => 'Elrendezés',
     'Name'       => 'Név',
     'Permission' => 'Engedély',

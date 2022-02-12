@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 return ['Navigation' => [
-    'Create' => 'Create',
-    'Draw'   => 'Draw',
-    'List'   => 'List',
+    'Create' => 'Vytvořit',
+    'Draw'   => 'Kreslit',
+    'List'   => 'Seznam',
 ]];

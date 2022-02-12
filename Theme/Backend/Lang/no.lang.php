@@ -13,8 +13,8 @@
 declare(strict_types=1);
 
 return ['Draw' => [
-    'Created'    => 'laget',
-    'Creator'    => 'skaperen',
+    'Created'    => 'Opprettet',
+    'Creator'    => 'Skaperen.',
     'Draw'       => 'Tegne',
     'GroupUser'  => 'Gruppe / bruker',
     'Images'     => 'Bilder',

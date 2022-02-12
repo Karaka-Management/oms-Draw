@@ -13,13 +13,13 @@
 declare(strict_types=1);
 
 return ['Draw' => [
-    'Created'    => '创建',
+    'Created'    => '创造了',
     'Creator'    => '创造者',
     'Draw'       => '画',
-    'GroupUser'  => '组/用户',
+    'GroupUser'  => '小组/用户',
     'Images'     => '图片',
     'Layout'     => '布局',
-    'Name'       => '姓名',
+    'Name'       => '名称',
     'Permission' => '允许',
     'Start'      => '开始',
 ]];

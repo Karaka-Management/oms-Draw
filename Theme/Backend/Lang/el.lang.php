@@ -13,11 +13,11 @@
 declare(strict_types=1);
 
 return ['Draw' => [
-    'Created'    => 'δημιουργήθηκε',
+    'Created'    => 'Δημιουργήθηκε',
     'Creator'    => 'Δημιουργός',
     'Draw'       => 'Σχεδιάζω',
-    'GroupUser'  => 'Ομάδα / χρήστη',
-    'Images'     => 'εικόνες',
+    'GroupUser'  => 'Ομάδα / χρήστης',
+    'Images'     => 'Εικόνες',
     'Layout'     => 'Διάταξη',
     'Name'       => 'Ονομα',
     'Permission' => 'Αδεια',

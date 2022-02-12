@@ -14,12 +14,12 @@ declare(strict_types=1);
 
 return ['Draw' => [
     'Created'    => '作成した',
-    'Creator'    => '創造主',
-    'Draw'       => 'ドロー',
+    'Creator'    => 'クリエーター',
+    'Draw'       => '描く',
     'GroupUser'  => 'グループ/ユーザー',
-    'Images'     => '画像',
+    'Images'     => 'images',
     'Layout'     => 'レイアウト',
     'Name'       => '名前',
     'Permission' => '許可',
-    'Start'      => '開始',
+    'Start'      => '始める',
 ]];

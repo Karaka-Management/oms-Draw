@@ -20,6 +20,6 @@ return ['Draw' => [
     'Images'     => 'Bilder',
     'Layout'     => 'Layout',
     'Name'       => 'namn',
-    'Permission' => 'Lov',
+    'Permission' => 'Tillstånd',
     'Start'      => 'Start',
 ]];

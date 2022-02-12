@@ -13,13 +13,13 @@
 declare(strict_types=1);
 
 return ['Draw' => [
-    'Created'    => 'düzenlendi',
-    'Creator'    => 'yaratıcı',
+    'Created'    => 'Yaratılmış',
+    'Creator'    => 'Yaratıcı',
     'Draw'       => 'Çizmek',
     'GroupUser'  => 'Grup / Kullanıcı',
     'Images'     => 'Görüntüler',
-    'Layout'     => 'Yerleşim',
-    'Name'       => 'ad',
-    'Permission' => 'izin',
-    'Start'      => 'Başlat',
+    'Layout'     => 'Düzen',
+    'Name'       => 'İsim',
+    'Permission' => 'İzin',
+    'Start'      => 'Başlangıç',
 ]];

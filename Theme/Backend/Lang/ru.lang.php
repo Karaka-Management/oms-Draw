@@ -14,10 +14,10 @@ declare(strict_types=1);
 
 return ['Draw' => [
     'Created'    => 'Созданный',
-    'Creator'    => 'творец',
+    'Creator'    => 'Создатель',
     'Draw'       => 'Рисовать',
-    'GroupUser'  => 'Группа / Пользователь',
-    'Images'     => 'Изображений',
+    'GroupUser'  => 'Группа / пользователь',
+    'Images'     => 'Картинки',
     'Layout'     => 'Макет',
     'Name'       => 'Имя',
     'Permission' => 'Разрешение',
