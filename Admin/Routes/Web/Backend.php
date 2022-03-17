@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 use Modules\Draw\Controller\BackendController;
-use Modules\Draw\Models\PermissionState;
+use Modules\Draw\Models\PermissionCategory;
 use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
@@ -25,7 +25,7 @@ return [
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::CREATE,
-                'state'  => PermissionState::DRAW,
+                'state'  => PermissionCategory::DRAW,
             ],
         ],
         [
@@ -34,7 +34,7 @@ return [
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::CREATE,
-                'state'  => PermissionState::DRAW,
+                'state'  => PermissionCategory::DRAW,
             ],
         ],
     ],
@@ -45,7 +45,7 @@ return [
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
-                'state'  => PermissionState::DRAW,
+                'state'  => PermissionCategory::DRAW,
             ],
         ],
     ],
@@ -56,7 +56,7 @@ return [
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
-                'state'  => PermissionState::DRAW,
+                'state'  => PermissionCategory::DRAW,
             ],
         ],
         [
@@ -65,7 +65,7 @@ return [
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
-                'state'  => PermissionState::DRAW,
+                'state'  => PermissionCategory::DRAW,
             ],
         ],
     ],

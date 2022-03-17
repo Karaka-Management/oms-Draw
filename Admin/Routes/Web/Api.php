@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 use Modules\Draw\Controller\ApiController;
-use Modules\Draw\Models\PermissionState;
+use Modules\Draw\Models\PermissionCategory;
 use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
@@ -25,7 +25,7 @@ return [
             'permission' => [
                 'module' => ApiController::NAME,
                 'type'   => PermissionType::CREATE,
-                'state'  => PermissionState::DRAW,
+                'state'  => PermissionCategory::DRAW,
             ],
         ],
     ],
