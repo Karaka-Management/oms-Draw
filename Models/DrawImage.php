@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Modules\Draw\Models;
 
 use Modules\Media\Models\Media;
-use phpOMS\Contract\ArrayableInterface;
 
 /**
  * News article class.
@@ -25,7 +24,7 @@ use phpOMS\Contract\ArrayableInterface;
  * @link    https://karaka.app
  * @since   1.0.0
  */
-class DrawImage implements \JsonSerializable, ArrayableInterface
+class DrawImage implements \JsonSerializable
 {
     /**
      * Article ID.
