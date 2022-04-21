@@ -72,7 +72,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function apiDrawCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateDrawCreate($request))) {
             $response->set('draw_create', new FormValidation($val));

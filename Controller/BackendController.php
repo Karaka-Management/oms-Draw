@@ -45,7 +45,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function setUpDrawEditor(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function setUpDrawEditor(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         /** @var \phpOMS\Model\Html\Head $head */
         $head = $response->get('Content')->getData('head');
@@ -66,7 +66,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDrawCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewDrawCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
 
@@ -88,7 +88,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDrawSingle(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewDrawSingle(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
 
@@ -116,7 +116,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDrawList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewDrawList(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
 
