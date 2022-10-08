@@ -25,7 +25,7 @@ echo $this->getData('nav')->render(); ?>
                 <form id="drawForm" action="<?= \phpOMS\Uri\UriFactory::build('{/api}draw?{?}&csrf={$CSRF}'); ?>" method="POST">
                     <div class="ipt-wrap">
                         <div class="ipt-first"><input type="text" id="iTitle" name="title" class="wf-100"></div>
-                        <div class="ipt-second"><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>"></div>
+                        <div class="ipt-second"><input type="submit" value="<?= $this->getHtml('Create', '0', '0'); ?>" name="create-draw"></div>
                     </div>
                 </form>
             </div>
@@ -89,7 +89,7 @@ echo $this->getData('nav')->render(); ?>
                 <form>
                     <table class="layout">
                         <tr><td colspan="2"><label><?= $this->getHtml('Permission'); ?></label>
-                        <tr><td><select>
+                        <tr><td><select name="permission">
                                     <option>
                                 </select>
                         <tr><td colspan="2"><label><?= $this->getHtml('GroupUser'); ?></label>
