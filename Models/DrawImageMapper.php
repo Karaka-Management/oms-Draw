@@ -65,5 +65,5 @@ final class DrawImageMapper extends DataMapperFactory
      * @var string
      * @since 1.0.0
      */
-    public const PRIMARYFIELD ='draw_image_id';
+    public const PRIMARYFIELD = 'draw_image_id';
 }
