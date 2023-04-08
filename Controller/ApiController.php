@@ -50,8 +50,8 @@ final class ApiController extends Controller
     private function validateDrawCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (($val['title'] = empty($request->getData('title')))
-            || ($val['image'] = empty($request->getData('image')))
+        if (($val['title'] = !$request->hasData('title'))
+            || ($val['image'] = !$request->hasData('image'))
         ) {
             return $val;
         }
