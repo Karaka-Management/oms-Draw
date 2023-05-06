@@ -37,7 +37,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Created'); ?>
                 <tbody>
                 <?php $count = 0; foreach ($images as $key => $value) : ++$count;
-                $url         = \phpOMS\Uri\UriFactory::build('draw/single?{?}&id=' . $value->getId()); ?>
+                $url         = \phpOMS\Uri\UriFactory::build('draw/single?{?}&id=' . $value->id); ?>
                     <tr>
                         <td data-label="<?= $this->getHtml('Name'); ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->media->name); ?></a>
                         <td data-label="<?= $this->getHtml('Creator'); ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->media->createdBy->login); ?></a>

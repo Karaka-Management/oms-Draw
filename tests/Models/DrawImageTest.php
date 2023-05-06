@@ -38,7 +38,7 @@ final class DrawImageTest extends \PHPUnit\Framework\TestCase
      */
     public function testDefault() : void
     {
-        self::assertEquals(0, $this->img->getId());
+        self::assertEquals(0, $this->img->id);
         self::assertNull($this->img->media);
     }
 
