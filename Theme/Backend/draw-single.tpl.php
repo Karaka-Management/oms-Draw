@@ -16,9 +16,9 @@ declare(strict_types=1);
  * @var \phpOMS\Views\View $this
  */
 
-$image = $this->getData('image');
+$image = $this->data['image'];
 
-echo $this->getData('nav')->render(); ?>
+echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">

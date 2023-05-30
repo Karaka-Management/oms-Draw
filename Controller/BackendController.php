@@ -48,7 +48,7 @@ final class BackendController extends Controller
     public function setUpDrawEditor(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         /** @var \phpOMS\Model\Html\Head $head */
-        $head = $response->get('Content')->getData('head');
+        $head = $response->get('Content')->head;
         $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Controller.js?v=1.0.0');
         $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Models/DrawType.js?v=1.0.0');
         $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Models/Editor.js?v=1.0.0');
@@ -71,7 +71,7 @@ final class BackendController extends Controller
         $view = new View($this->app->l11nManager, $request, $response);
 
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-create');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
+        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response);
 
         return $view;
     }
@@ -97,9 +97,9 @@ final class BackendController extends Controller
         $accountId = $request->header->account;
 
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-single');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
+        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response);
 
-        $view->addData('image', $draw);
+        $view->data['image'] = $draw;
 
         return $view;
     }
@@ -121,11 +121,11 @@ final class BackendController extends Controller
         $view = new View($this->app->l11nManager, $request, $response);
 
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-list');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response));
+        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response);
 
         /** @var \Modules\Draw\Models\DrawImage[] $images */
         $images = DrawImageMapper::getAll()->sort('id', OrderType::DESC)->limit(25);
-        $view->addData('images', $images);
+        $view->data['images'] = $images;
 
         return $view;
     }
