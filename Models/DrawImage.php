@@ -42,17 +42,6 @@ class DrawImage implements \JsonSerializable
      */
     public null|int|Media $media = null;
 
-    /**
-     * Get id
-     *
-     * @return int
-     *
-     * @since 1.0.0
-     */
-    public function getId() : int
-    {
-        return $this->id;
-    }
 
     /**
      * {@inheritdoc}
