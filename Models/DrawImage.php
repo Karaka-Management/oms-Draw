@@ -42,7 +42,6 @@ class DrawImage implements \JsonSerializable
      */
     public null|int|Media $media = null;
 
-
     /**
      * {@inheritdoc}
      */

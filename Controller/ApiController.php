@@ -76,7 +76,7 @@ final class ApiController extends Controller
     {
         if (!empty($val = $this->validateDrawCreate($request))) {
             $response->data['draw_create'] = new FormValidation($val);
-            $response->header->status = RequestStatusCode::R_400;
+            $response->header->status      = RequestStatusCode::R_400;
 
             return;
         }

@@ -124,7 +124,7 @@ final class BackendController extends Controller
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response);
 
         /** @var \Modules\Draw\Models\DrawImage[] $images */
-        $images = DrawImageMapper::getAll()->sort('id', OrderType::DESC)->limit(25);
+        $images               = DrawImageMapper::getAll()->sort('id', OrderType::DESC)->limit(25);
         $view->data['images'] = $images;
 
         return $view;
