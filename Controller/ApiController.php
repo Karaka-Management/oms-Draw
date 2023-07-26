@@ -21,10 +21,8 @@ use Modules\Draw\Models\DrawImageMapper;
 use Modules\Media\Controller\ApiController as MediaController;
 use Modules\Media\Models\UploadStatus;
 use phpOMS\Message\Http\RequestStatusCode;
-use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
-use phpOMS\Model\Message\FormValidation;
 use phpOMS\System\File\Local\File;
 use phpOMS\Utils\ImageUtils;
 
@@ -75,8 +73,8 @@ final class ApiController extends Controller
     public function apiDrawCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateDrawCreate($request))) {
-            $response->data['draw_create'] = new FormValidation($val);
-            $response->header->status      = RequestStatusCode::R_400;
+            $response->header->status = RequestStatusCode::R_400;
+            $this->createInvalidCreateResponse($request, $response, $val);
 
             return;
         }
@@ -99,7 +97,7 @@ final class ApiController extends Controller
         // protection against infinite loop
         if ($i >= 10000) {
             // @codeCoverageIgnoreStart
-            $this->fillJsonResponse($request, $response, NotificationLevel::ERROR, 'Draw', 'Draw failed.', null);
+            $this->createInvalidCreateResponse($request, $response, null);
             return;
             // @codeCoverageIgnoreEnd
         }
@@ -121,7 +119,7 @@ final class ApiController extends Controller
         $draw  = DrawImage::fromMedia($media);
 
         $this->createModel($request->header->account, $draw, DrawImageMapper::class, 'draw', $request->getOrigin());
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Draw', 'Draw successfully created.', $draw);
+        $this->createStandardCreateResponse($request, $response, $draw);
     }
 
     /**
