@@ -48,10 +48,12 @@ final class BackendController extends Controller
     public function setUpDrawEditor(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         /** @var \phpOMS\Model\Html\Head $head */
-        $head = $response->data['Content']->head;
-        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Controller.js?v=1.0.0');
-        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Models/DrawType.js?v=1.0.0');
-        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Models/Editor.js?v=1.0.0');
+        $head  = $response->data['Content']->head;
+        $nonce = $this->app->appSettings->getOption('script-nonce');
+
+        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Controller.js?v=1.0.0', ['nonce' => $nonce]);
+        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Models/DrawType.js?v=1.0.0', ['nonce' => $nonce]);
+        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Models/Editor.js?v=1.0.0', ['nonce' => $nonce]);
     }
 
     /**
