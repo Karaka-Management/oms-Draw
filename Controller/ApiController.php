@@ -61,7 +61,7 @@ final class ApiController extends Controller
      *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
+     * @param array            $data     Generic data
      *
      * @return void
      *
@@ -69,7 +69,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiDrawCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
+    public function apiDrawCreate(RequestAbstract $request, ResponseAbstract $response, array $data = []) : void
     {
         if (!empty($val = $this->validateDrawCreate($request))) {
             $response->header->status = RequestStatusCode::R_400;
