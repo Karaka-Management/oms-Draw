@@ -107,8 +107,8 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
 
         $this->module->apiDrawCreate($request, $response);
 
-        self::assertEquals('Draw Title', $response->get('')['response']->media->name);
-        self::assertGreaterThan(0, $response->get('')['response']->id);
+        self::assertEquals('Draw Title', $response->getDataArray('')['response']->media->name);
+        self::assertGreaterThan(0, $response->getDataArray('')['response']->id);
     }
 
     /**
