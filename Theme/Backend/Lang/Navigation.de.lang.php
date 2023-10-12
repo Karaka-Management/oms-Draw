@@ -15,5 +15,5 @@ declare(strict_types=1);
 return ['Navigation' => [
     'Create' => 'Erstellen',
     'Draw'   => 'Zeichnen',
-    'List'   => 'Aufführen',
+    'List'   => 'Liste',
 ]];

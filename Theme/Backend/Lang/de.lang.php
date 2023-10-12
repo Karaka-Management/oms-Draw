@@ -14,12 +14,12 @@ declare(strict_types=1);
 
 return ['Draw' => [
     'Created'    => 'Erstellt',
-    'Creator'    => 'Schöpfer',
+    'Creator'    => 'Ersteller',
     'Draw'       => 'Zeichnen',
     'GroupUser'  => 'Gruppe / Benutzer',
     'Images'     => 'Bilde',
     'Layout'     => 'Layout',
     'Name'       => 'Name',
     'Permission' => 'Erlaubnis',
-    'Start'      => 'Anfang',
+    'Start'      => 'Start',
 ]];
