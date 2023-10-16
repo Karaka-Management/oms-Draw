@@ -23,7 +23,7 @@ final class NullDrawImageTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\Draw\Models\NullDrawImage
-     * @group framework
+     * @group module
      */
     public function testNull() : void
     {
@@ -32,11 +32,21 @@ final class NullDrawImageTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Draw\Models\NullDrawImage
-     * @group framework
+     * @group module
      */
     public function testId() : void
     {
         $null = new NullDrawImage(2);
         self::assertEquals(2, $null->id);
+    }
+
+    /**
+     * @covers Modules\Draw\Models\NullDrawImage
+     * @group module
+     */
+    public function testJsonSerialize() : void
+    {
+        $null = new NullDrawImage(2);
+        self::assertEquals(['id' => 2], $null);
     }
 }
