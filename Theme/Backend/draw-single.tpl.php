@@ -47,20 +47,19 @@ echo $this->data['nav']->render(); ?>
                     <input type="radio" id="c-tab-1" name="tabular-1" checked>
                     <div class="tab">
                         <ul class="h-list">
-                            <li><i class="fa fa-lg fa-floppy-o"></i>
-                            <li><i class="fa fa-lg fa-cloud-download"></i>
-                            <li><i class="fa fa-lg fa-undo"></i>
-                            <li><i class="fa fa-lg fa-repeat"></i>
-                            <li><i class="fa fa-lg fa-pencil"></i>
-                            <li><i class="fa fa-lg fa-paint-brush"></i>
-                            <li><i class="fa fa-lg fa-eraser"></i>
-                            <li><i class="fa fa-lg fa-minus"></i>
-                            <li><i class="fa fa-lg fa-square-o"></i>
-                            <li><i class="fa fa-lg fa-circle-thin"></i>
-                            <li><i class="fa fa-lg fa-tint"></i>
-                            <li><i class="fa fa-lg fa-bars"></i>
-                            <li><i class="fa fa-lg fa-i-cursor"></i>
-                            <li><i class="fa fa-lg fa-text-height"></i>
+                            <li><i class="g-icon">save</i>
+                            <li><i class="g-icon">download</i>
+                            <li><i class="g-icon">undo</i>
+                            <li><i class="g-icon">redo</i>
+                            <li><i class="g-icon">edit</i>
+                            <li><i class="g-icon">brush</i>
+                            <li><i class="g-icon">ink_eraser</i>
+                            <li><i class="g-icon">remove</i>
+                            <li><i class="g-icon">check_box_outline_blank</i>
+                            <li><i class="g-icon">circle</i>
+                            <li><i class="g-icon">format_color_fill</i>
+                            <li><i class="g-icon">menu</i>
+                            <li><i class="g-icon">format_size</i>
                         </ul>
                     </div>
                     <input type="radio" id="c-tab-2" name="tabular-1">
