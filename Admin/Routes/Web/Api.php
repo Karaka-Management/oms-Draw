@@ -18,7 +18,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/draw.*$' => [
+    '^.*/draw(\?.*$|$)' => [
         [
             'dest'       => '\Modules\Draw\Controller\ApiController:apiDrawCreate',
             'verb'       => RouteVerb::SET,

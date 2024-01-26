@@ -60,8 +60,8 @@ final class DrawImageTest extends \PHPUnit\Framework\TestCase
     {
         self::assertEquals(
             [
-                'id'       => 0,
-                'media'    => null,
+                'id'    => 0,
+                'media' => null,
             ],
             $this->img->jsonSerialize()
         );

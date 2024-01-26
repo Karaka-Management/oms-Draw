@@ -90,7 +90,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDrawSingle(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
+    public function viewDrawView(RequestAbstract $request, ResponseAbstract $response, array $data = []) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
 
@@ -98,7 +98,7 @@ final class BackendController extends Controller
         $draw      = DrawImageMapper::get()->where('id', (int) $request->getData('id'))->execute();
         $accountId = $request->header->account;
 
-        $view->setTemplate('/Modules/Draw/Theme/Backend/draw-single');
+        $view->setTemplate('/Modules/Draw/Theme/Backend/draw-view');
         $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1005201001, $request, $response);
 
         $view->data['image'] = $draw;

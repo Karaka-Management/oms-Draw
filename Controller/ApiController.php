@@ -85,7 +85,7 @@ final class ApiController extends Controller
 
         $i = 0;
         do {
-            $filename  = \sha1(((string) $request->getData('image')) . $rnd);
+            $filename = \sha1(((string) $request->getData('image')) . $rnd);
             $filename .= '.' . $extension;
 
             $rnd = \mt_rand();
