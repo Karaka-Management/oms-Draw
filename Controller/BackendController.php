@@ -51,9 +51,9 @@ final class BackendController extends Controller
         $head  = $response->data['Content']->head;
         $nonce = $this->app->appSettings->getOption('script-nonce');
 
-        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Controller.js?v=1.0.0', ['nonce' => $nonce]);
-        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Models/DrawType.js?v=1.0.0', ['nonce' => $nonce]);
-        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Models/Editor.js?v=1.0.0', ['nonce' => $nonce]);
+        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Controller.js?v=' . self::VERSION, ['nonce' => $nonce]);
+        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Models/DrawType.js?v=' . self::VERSION, ['nonce' => $nonce]);
+        $head->addAsset(AssetType::JSLATE, 'Modules/Draw/Models/Editor.js?v=' . self::VERSION, ['nonce' => $nonce]);
     }
 
     /**
