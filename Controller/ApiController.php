@@ -96,7 +96,7 @@ final class ApiController extends Controller
         // protection against infinite loop
         if ($i >= 10000) {
             // @codeCoverageIgnoreStart
-            $this->createInvalidCreateResponse($request, $response, null);
+            $this->createInvalidCreateResponse($request, $response, []);
             return;
             // @codeCoverageIgnoreEnd
         }
