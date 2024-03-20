@@ -20,6 +20,7 @@ use Modules\Media\Models\Media;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Draw\Models\DrawImage::class)]
 final class DrawImageTest extends \PHPUnit\Framework\TestCase
 {
     private DrawImage $img;
@@ -32,30 +33,21 @@ final class DrawImageTest extends \PHPUnit\Framework\TestCase
         $this->img = new DrawImage();
     }
 
-    /**
-     * @covers \Modules\Draw\Models\DrawImage
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testDefault() : void
     {
         self::assertEquals(0, $this->img->id);
         self::assertNull($this->img->media);
     }
 
-    /**
-     * @covers \Modules\Draw\Models\DrawImage
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testFromMedia() : void
     {
         $img = DrawImage::fromMedia($temp = new Media());
         self::assertEquals($temp, $img->media);
     }
 
-    /**
-     * @covers \Modules\Draw\Models\DrawImage
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testSerialize() : void
     {
         self::assertEquals(

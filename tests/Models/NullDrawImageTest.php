@@ -19,31 +19,23 @@ use Modules\Draw\Models\NullDrawImage;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Draw\Models\NullDrawImage::class)]
 final class NullDrawImageTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Modules\Draw\Models\NullDrawImage
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testNull() : void
     {
         self::assertInstanceOf('\Modules\Draw\Models\DrawImage', new NullDrawImage());
     }
 
-    /**
-     * @covers \Modules\Draw\Models\NullDrawImage
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testId() : void
     {
         $null = new NullDrawImage(2);
         self::assertEquals(2, $null->id);
     }
 
-    /**
-     * @covers \Modules\Draw\Models\NullDrawImage
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testJsonSerialize() : void
     {
         $null = new NullDrawImage(2);
