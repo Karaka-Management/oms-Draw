@@ -92,7 +92,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Draw\Controller\ApiController
+     * @covers \Modules\Draw\Controller\ApiController
      * @group module
      */
     public function testCreateDraw() : void
@@ -111,7 +111,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Draw\Controller\ApiController
+     * @covers \Modules\Draw\Controller\ApiController
      * @group module
      */
     public function testApiDrawCreateInvalidData() : void

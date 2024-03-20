@@ -33,7 +33,7 @@ final class DrawImageTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Draw\Models\DrawImage
+     * @covers \Modules\Draw\Models\DrawImage
      * @group module
      */
     public function testDefault() : void
@@ -43,7 +43,7 @@ final class DrawImageTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Draw\Models\DrawImage
+     * @covers \Modules\Draw\Models\DrawImage
      * @group module
      */
     public function testFromMedia() : void
@@ -53,7 +53,7 @@ final class DrawImageTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Draw\Models\DrawImage
+     * @covers \Modules\Draw\Models\DrawImage
      * @group module
      */
     public function testSerialize() : void

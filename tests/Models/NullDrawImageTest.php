@@ -22,7 +22,7 @@ use Modules\Draw\Models\NullDrawImage;
 final class NullDrawImageTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\Draw\Models\NullDrawImage
+     * @covers \Modules\Draw\Models\NullDrawImage
      * @group module
      */
     public function testNull() : void
@@ -31,7 +31,7 @@ final class NullDrawImageTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Draw\Models\NullDrawImage
+     * @covers \Modules\Draw\Models\NullDrawImage
      * @group module
      */
     public function testId() : void
@@ -41,7 +41,7 @@ final class NullDrawImageTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Draw\Models\NullDrawImage
+     * @covers \Modules\Draw\Models\NullDrawImage
      * @group module
      */
     public function testJsonSerialize() : void
