@@ -22,6 +22,7 @@ return [
         [
             'dest'       => '\Modules\Draw\Controller\ApiController:apiDrawCreate',
             'verb'       => RouteVerb::SET,
+            'csrf'       => true,
             'permission' => [
                 'module' => ApiController::NAME,
                 'type'   => PermissionType::CREATE,
