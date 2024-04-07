@@ -18,7 +18,7 @@ use Modules\Media\Models\MediaMapper;
 use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
- * Mapper class.
+ * DrawImage mapper class.
  *
  * @package Modules\Draw\Models
  * @license OMS License 2.0

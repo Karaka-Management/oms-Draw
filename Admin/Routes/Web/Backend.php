@@ -22,6 +22,7 @@ return [
         [
             'dest'       => '\Modules\Draw\Controller\BackendController:setUpDrawEditor',
             'verb'       => RouteVerb::GET,
+            'active' => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::CREATE,
@@ -31,6 +32,7 @@ return [
         [
             'dest'       => '\Modules\Draw\Controller\BackendController:viewDrawCreate',
             'verb'       => RouteVerb::GET,
+            'active' => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::CREATE,
@@ -42,6 +44,7 @@ return [
         [
             'dest'       => '\Modules\Draw\Controller\BackendController:viewDrawList',
             'verb'       => RouteVerb::GET,
+            'active' => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -53,6 +56,7 @@ return [
         [
             'dest'       => '\Modules\Draw\Controller\BackendController:setUpDrawEditor',
             'verb'       => RouteVerb::GET,
+            'active' => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
@@ -62,6 +66,7 @@ return [
         [
             'dest'       => '\Modules\Draw\Controller\BackendController:viewDrawView',
             'verb'       => RouteVerb::GET,
+            'active' => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
