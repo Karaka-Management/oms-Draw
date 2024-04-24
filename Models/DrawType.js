@@ -8,7 +8,7 @@
  */
 (function (jsOMS)
 {
-    "use strict";
+    'use strict';
     /** @namespace jsOMS.Modules.Draw */
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Draw');
 

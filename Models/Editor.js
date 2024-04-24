@@ -1,6 +1,6 @@
 (function (jsOMS)
 {
-    "use strict";
+    'use strict';
     /** @namespace jsOMS.Modules.Draw */
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Draw');
 
@@ -10,26 +10,34 @@
         this.app             = app;
         this.canvas          = document.getElementsByTagName('canvas')[0];
         this.canvasContainer = this.canvas.parentElement;
-        this.ctx             = this.canvas.getContext("2d");
+        this.ctx             = this.canvas.getContext('2d');
 
-        let canvasStyle          = window.getComputedStyle(this.canvas, null),
-            canvasContainerStyle = window.getComputedStyle(this.canvasContainer, null);
+        const canvasStyle          = window.getComputedStyle(this.canvas, null);
+            const canvasContainerStyle = window.getComputedStyle(this.canvasContainer, null);
 
         this.resize({
-            width: parseFloat(canvasContainerStyle.width) - parseFloat(canvasContainerStyle.paddingLeft) - parseFloat(canvasContainerStyle.paddingRight) - parseFloat(canvasContainerStyle.borderLeftWidth) - parseFloat(canvasStyle.borderLeftWidth),
-            height: parseFloat(canvasContainerStyle.height) - parseFloat(canvasContainerStyle.paddingTop) - parseFloat(canvasContainerStyle.paddingBottom) - parseFloat(canvasContainerStyle.borderRightWidth) - parseFloat(canvasStyle.borderRightWidth)
+            width: parseFloat(canvasContainerStyle.width)
+                - parseFloat(canvasContainerStyle.paddingLeft)
+                - parseFloat(canvasContainerStyle.paddingRight)
+                - parseFloat(canvasContainerStyle.borderLeftWidth)
+                - parseFloat(canvasStyle.borderLeftWidth),
+            height: parseFloat(canvasContainerStyle.height)
+                - parseFloat(canvasContainerStyle.paddingTop)
+                - parseFloat(canvasContainerStyle.paddingBottom)
+                - parseFloat(canvasContainerStyle.borderRightWidth)
+                - parseFloat(canvasStyle.borderRightWidth)
         });
 
         // Backup for undo.
         this.canvasBackup = document.createElement('canvas');
-        this.ctxBackup    = this.canvasBackup.getContext("2d");
+        this.ctxBackup    = this.canvasBackup.getContext('2d');
 
         this.size     = 1;
         this.type     = jsOMS.Modules.Draw.DrawTypeEnum.DRAW;
         this.color    = '#000000';
         this.drawFlag = false;
-        this.oldPos   = {x: 0, y: 0};
-        this.newPos   = {x: 0, y: 0};
+        this.oldPos   = { x: 0, y: 0 };
+        this.newPos   = { x: 0, y: 0 };
 
         // All backup steps need to be stored here (draw, resize etc.)
         // Undo means the whole canvas will be redrawn on the canvasBackup without the last step
@@ -43,16 +51,24 @@
 
         this.initCanvas();
 
-        this.app.eventManager.attach(this.canvasContainer.id, function(evt) {
+        this.app.eventManager.attach(this.canvasContainer.id, function (evt) {
             self.canvasStyle          = window.getComputedStyle(self.canvas, null);
             self.canvasContainerStyle = window.getComputedStyle(self.canvasContainer, null);
 
             this.resize({
-                width: parseFloat(self.canvasContainerStyle.width) - parseFloat(self.canvasContainerStyle.paddingLeft) - parseFloat(self.canvasContainerStyle.paddingRight) - parseFloat(self.canvasContainerStyle.borderLeftWidth) - parseFloat(self.canvasStyle.borderLeftWidth),
-                height: parseFloat(self.canvasContainerStyle.height) - parseFloat(self.canvasContainerStyle.paddingTop) - parseFloat(self.canvasContainerStyle.paddingBottom) - parseFloat(self.canvasContainerStyle.borderRightWidth) - parseFloat(self.canvasStyle.borderRightWidth)
+                width: parseFloat(self.canvasContainerStyle.width)
+                    - parseFloat(self.canvasContainerStyle.paddingLeft)
+                    - parseFloat(self.canvasContainerStyle.paddingRight)
+                    - parseFloat(self.canvasContainerStyle.borderLeftWidth)
+                    - parseFloat(self.canvasStyle.borderLeftWidth),
+                height: parseFloat(self.canvasContainerStyle.height)
+                    - parseFloat(self.canvasContainerStyle.paddingTop)
+                    - parseFloat(self.canvasContainerStyle.paddingBottom)
+                    - parseFloat(self.canvasContainerStyle.borderRightWidth)
+                    - parseFloat(self.canvasStyle.borderRightWidth)
             });
         });
-        this.app.uiManager.getDOMObserver().observe(this.canvasContainer, {childList: true, subtree: true});
+        this.app.uiManager.getDOMObserver().observe(this.canvasContainer, { childList: true, subtree: true });
 
         // Handle draw and resize
         this.canvas.addEventListener('mousemove', function (evt)
@@ -67,7 +83,7 @@
             }
         }, false);
 
-        this.canvas.addEventListener("mousedown", function (evt)
+        this.canvas.addEventListener('mousedown', function (evt)
         {
             self.drawFlag = true;
             self.oldPos   = self.newPos;
@@ -75,25 +91,31 @@
 
             if (self.drawFlag && self.type === jsOMS.Modules.Draw.DrawTypeEnum.DRAW) {
                 self.draw(self.newPos, self.newPos);
-            } else if (self.drawFlag && self.type === jsOMS.Modules.Draw.DrawTypeEnum.RECTANGLE || self.type === jsOMS.Modules.Draw.DrawTypeEnum.LINE || self.type === jsOMS.Modules.Draw.DrawTypeEnum.CIRCLE) {
+            } else if (self.drawFlag && (self.type === jsOMS.Modules.Draw.DrawTypeEnum.RECTANGLE
+                || self.type === jsOMS.Modules.Draw.DrawTypeEnum.LINE
+                || self.type === jsOMS.Modules.Draw.DrawTypeEnum.CIRCLE)
+            ) {
                 self.oldPos = self.newPos;
                 self.newPos = self.mousePosition(evt);
             }
         }, false);
 
-        this.canvas.addEventListener("mouseup", function (evt)
+        this.canvas.addEventListener('mouseup', function (evt)
         {
             self.oldPos = self.newPos;
             self.newPos = self.mousePosition(evt);
 
-            if (self.drawFlag && self.type === jsOMS.Modules.Draw.DrawTypeEnum.RECTANGLE || self.type === jsOMS.Modules.Draw.DrawTypeEnum.LINE || self.type === jsOMS.Modules.Draw.DrawTypeEnum.CIRCLE) {
+            if (self.drawFlag && (self.type === jsOMS.Modules.Draw.DrawTypeEnum.RECTANGLE
+                || self.type === jsOMS.Modules.Draw.DrawTypeEnum.LINE
+                || self.type === jsOMS.Modules.Draw.DrawTypeEnum.CIRCLE)
+            ) {
                 self.draw(self.oldPos, self.newPos);
             }
 
             self.drawFlag = false;
         }, false);
 
-        this.canvas.addEventListener("mouseout", function (evt)
+        this.canvas.addEventListener('mouseout', function (evt)
         {
             self.oldPos = self.newPos;
             self.newPos = self.mousePosition(evt);
@@ -104,19 +126,19 @@
         }, false);
     };
 
-    jsOMS.Modules.Draw.Editor.prototype.initCanvas = function()
+    jsOMS.Modules.Draw.Editor.prototype.initCanvas = function ()
     {
-        const img = this.canvas.getAttribute('data-src'),
-            self  = this;
+        const img = this.canvas.getAttribute('data-src');
+            const self  = this;
 
         if (img !== null && typeof img !== 'undefined' && img.length > 0) {
             /** global: Image */
-            let imgObj = new Image();
+            const imgObj = new Image();
 
-            imgObj.addEventListener('load', function() {
+            imgObj.addEventListener('load', function () {
                 self.canvas.width  = imgObj.width;
                 self.canvas.height = imgObj.height;
-                self.canvas.getContext("2d").drawImage(imgObj, 0, 0);
+                self.canvas.getContext('2d').drawImage(imgObj, 0, 0);
             });
 
             imgObj.src = img;
@@ -136,7 +158,9 @@
             } else if (this.type === jsOMS.Modules.Draw.DrawTypeEnum.RECTANGLE) {
                 this.ctx.rect(start.x, start.y, end.x - start.x, end.y - start.y);
             } else if (this.type === jsOMS.Modules.Draw.DrawTypeEnum.CIRCLE) {
-                this.ctx.arc(start.x, start.y, Math.sqrt((end.x - start.x) * (end.x - start.x) + (end.y - start.y) * (end.y - start.y)), 0, 2 * Math.PI);
+                this.ctx.arc(start.x, start.y, Math.sqrt(
+                    (end.x - start.x) * (end.x - start.x) + (end.y - start.y) * (end.y - start.y)), 0, 2 * Math.PI
+                );
             } else if (this.type === jsOMS.Modules.Draw.DrawTypeEnum.LINE) {
                 this.ctx.moveTo(start.x, start.y);
                 this.ctx.lineTo(end.x, end.y);

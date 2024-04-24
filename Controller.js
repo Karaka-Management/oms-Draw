@@ -1,5 +1,5 @@
 (function (jsOMS) {
-    "use strict";
+    'use strict';
     /** @namespace jsOMS.Modules */
     jsOMS.Autoloader.defineNamespace('jsOMS.Modules.Draw');
 
@@ -18,13 +18,13 @@
 
             this.editors.push(temp);
         } else {
-            const canvas = document.getElementsByClassName('m-draw'),
-                length   = canvas.length;
+            const canvas = document.getElementsByClassName('m-draw');
+            const length = canvas.length;
 
             this.editors = [];
 
             /* Handle media forms */
-            for (let c = 0; c < canvas.length; ++c) {
+            for (let c = 0; c < length; ++c) {
                 temp = new jsOMS.Modules.Draw.Editor(canvas[c], this.app);
                 temp.bind();
 
@@ -33,11 +33,11 @@
         }
     };
 
-    jsOMS.Modules.Draw.prototype.getElements = function() {
+    jsOMS.Modules.Draw.prototype.getElements = function () {
         return this.editors;
     };
 
-    jsOMS.Modules.Draw.prototype.count = function() {
+    jsOMS.Modules.Draw.prototype.count = function () {
         return this.editors.length;
     };
 }(window.jsOMS = window.jsOMS || {}));
