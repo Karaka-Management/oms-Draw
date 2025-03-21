@@ -95,7 +95,7 @@ final class BackendController extends Controller
         $view = new View($this->app->l11nManager, $request, $response);
 
         /** @var \Modules\Draw\Models\DrawImage $draw */
-        $draw      = DrawImageMapper::get()->where('id', (int) $request->getData('id'))->execute();
+        $draw      = DrawImageMapper::get()->where('id', $request->getDataInt('id') ?? 0)->execute();
         $accountId = $request->header->account;
 
         $view->setTemplate('/Modules/Draw/Theme/Backend/draw-view');
